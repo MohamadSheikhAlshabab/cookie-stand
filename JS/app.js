@@ -12,7 +12,7 @@ var seattle = {
 
     randCustomer: function (minCustomer, maxCustomer) { // generate random number of customer
         var randNum = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
-        // console.log(randNum);
+        console.log(`randNum ${randNum}`);
         return randNum;
     },
 
@@ -357,6 +357,7 @@ Paris.addElement();
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm','Total'];
 var Chours = ['', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+var shops =['Seattle','Paris','Lima','Dubai','Tokoy'];
 // // var Chours1 = ['', '', '', '', '', '', '', '', '', '', '', '', '', ''];
  var sumArr = 0;
 
@@ -403,6 +404,8 @@ var Lima = {
     },
 
     addElement: function () {
+          
+        
 
         let divElem = document.createElement('div');
     
@@ -417,9 +420,20 @@ var Lima = {
         let unList = document.createElement('ul');
     
         document.body.appendChild(unList);
-        
+
+
+        var container=document.getElementById('container');
+
+        var tableEl = document.createElement('table');
+        container.appendChild(tableEl);
+        var trEl= document.createElement('tr');
+        tableEl.appendChild(trEl);
+
+
         
         for (var numList = 0; numList < Chours.length; numList++) {
+
+            
      
             let itemList = document.createElement('li');
             document.body.appendChild(itemList);
@@ -427,7 +441,12 @@ var Lima = {
             if (numList== Chours.length){
                 itemList.textContent=`Total:${Chours[numList]} cookies`;
                 // console.log(`${n} ${sas}`);
-            }
+            } 
+
+      
+        
+
+      
        
         }
 
@@ -440,3 +459,22 @@ Lima.Sales();
 Lima.CookiesHour();
 Lima.sumTotal();
 Lima.addElement();
+
+
+
+
+
+
+function seattleBran (randCustomer,Sales,cookies,sumTotal,addElement){
+
+    this.randCustomer=randCustomer;
+    this.Sales=Sales;
+    this.cookies=cookies;
+    this.sumTotal=sumTotal;
+    this.addElement=addElement;
+}
+
+//  seattleBran(randNum,multi,Chours[r],sumArr)
+ 
+
+
