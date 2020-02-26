@@ -2,7 +2,7 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var Chours = [];
  var sumArr = 0;
-
+var store =[Seattle ,Tokoy ,Dubai , Paris ,Lima];
 
 
 function Store(name, mincus, maxcus, avgcookie) {  // constructor
@@ -12,26 +12,95 @@ function Store(name, mincus, maxcus, avgcookie) {  // constructor
     this.avgcookie = avgcookie;
     this.shops = [];
     this.sumArr = 0;
-    this.multi = 0;
+    // this.multi = 0;
 
 }
 
 
-Store.prototype.randCustomer=function (minCustomer, maxCustomer) { // generate random number of customer
-    var randNum = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
+Store.prototype.randCustomer=function (mincus, maxcus) { // generate random number of customer
+    for (var r=0; r < hours.length; r++) {
+    var randNum = Math.floor(Math.random() * (this.maxcus - this.mincus) + this.mincus);
     console.log(`randNum ${randNum}`);
-    this.Store = this.Sales;
-    return randNum;
+    var multi = 0;   
+    multi = Math.floor(randNum * this.avgcookie  );
+    console.log(`multi ${ r}   ${multi}`);
+    Chours.push(multi);
+    
+}
+    
+    for (var r=0; r < hours.length; r++) {
+        
+        sumArr += Chours[r];
+        Chours.push(`${sumArr} cookies`);
+    }
+    console.log(`${sumArr}`);
+    
 }
 
 
 
-Store.prototype.Sales= function () { //this number of cookies hourly
-    var multi = 0;
-    multi = Math.floor(this.randNum * this.avgCookies);
-    console.log(`multi ${multi}`);
-    return multi;
 
+
+
+
+
+
+////////////////// add element done 
+Store.prototype.addElement = function () {
+
+var link1 =document.createElement('a');
+container.appendChild(link1);
+link1.textContent='Index';
+link1.setAttribute('href', "index.html");
+
+var link2 =document.createElement('a');
+container.appendChild(link2);
+link2.textContent='Sales';
+link2.setAttribute('href', "sales.html");
+
+ var table1 =document.getElementById('table');
+    var trEl = document.createElement('tr');
+    // table1.appendChild(trEl);
+
+    for (var u = 0; u !== shops.length; u++) {
+
+        if (shops[u] == this.name) {
+            // unList2.textContent = shops[u];
+
+    
+
+        }
+    }
+
+    // var unList = document.createElement('ul');
+    // container.appendChild(unList);
+    for (var numList = 0; numList < hours.length; numList++) {
+
+    var thEl =document.createElement('th');
+            trEl.appendChild(thEl);
+
+
+/////////////////////////// this to add all li 
+        // var liEl = document.createElement('li');
+        // unList.appendChild(liEl);
+        // liEl.textContent = ` ${hours[numList]} : ${Chours[numList]} Cookies`;
+
+
+
+
+        Chours.push(multi);
+    }
+    if (Chours[numList] != numList) {
+
+        ///////////////////////// this to add new li to total
+        // var liEl = document.createElement('li');
+        // unList.appendChild(liEl);
+        // liEl.textContent = ` Total : ${sumArr} Cookies`;
+
+    }
+
+
+   
 }
 
 
@@ -47,99 +116,6 @@ Store.prototype.Sales= function () { //this number of cookies hourly
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 'use strict'
-// var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-// var Chours = [];
-
-
-
-// function Store(name, mincus, maxcus, avgcookie) {  // constructor
-//     this.name = name;
-//     this.mincus = mincus;
-//     this.maxcus = maxcus;
-//     this.avgcookie = avgcookie;
-//     this.shops = [];
-//     this.sumArr = 0;
-//     this.multi = 0;
-
-// }
-
-
-// Store.prototype.randCustomer = function () { ///  generate random number and num of cookies hourly
-//     for (var t = 0; t < hours.length; t++) {
-//         var ranNum = Math.floor(Math.random() * ((this.maxcus - this.mincus) + this.mincus));
-//         console.log(ranNum);
-//     }
-//     return ranNum
-// }
-
-
-
-
-// multi = Math.floor(this.avgcookie * ranNum);
-//         console.log(multi);
-//         Chours.push(multi);
 
 
 
@@ -160,4 +136,7 @@ var Paris = new Store('Paris', 20, 38, 2.3);
 Paris.randCustomer();
 
 var Lima = new Store('Lima', 2, 16, 4.6);
+
+
+
 Lima.randCustomer();
