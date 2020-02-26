@@ -424,10 +424,10 @@ var Lima = {
 
         var container=document.getElementById('container');
 
-        var tableEl = document.createElement('table');
-        container.appendChild(tableEl);
-        var trEl= document.createElement('tr');
-        tableEl.appendChild(trEl);
+        // var tableEl = document.createElement('table');
+        // container.appendChild(tableEl);
+        // var trEl= document.createElement('tr');
+        // tableEl.appendChild(trEl);
 
 
         
@@ -454,25 +454,25 @@ var Lima = {
     }
 }
 
-Lima.randCustomer();
-Lima.Sales();
-Lima.CookiesHour();
-Lima.sumTotal();
-Lima.addElement();
+// Lima.randCustomer();
+// Lima.Sales();
+// Lima.CookiesHour();
+// Lima.sumTotal();
+// Lima.addElement();
 
 
 
 
 
 
-function seattleBran (randCustomer,Sales,cookies,sumTotal,addElement){
+// function seattleBran (randCustomer,Sales,cookies,sumTotal,addElement){
 
-    this.randCustomer=randCustomer;
-    this.Sales=Sales;
-    this.cookies=cookies;
-    this.sumTotal=sumTotal;
-    this.addElement=addElement;
-}
+//     this.randCustomer=randCustomer;
+//     this.Sales=Sales;
+//     this.cookies=cookies;
+//     this.sumTotal=sumTotal;
+//     this.addElement=addElement;
+// }
 
 //  seattleBran(randNum,multi,Chours[r],sumArr)
  
