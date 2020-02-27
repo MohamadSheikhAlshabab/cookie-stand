@@ -1,6 +1,5 @@
 'use strict';
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-// var sumArr = 0;
 var store = [Seattle, Tokoy, Dubai, Paris, Lima];
 
 
@@ -11,8 +10,6 @@ function Store(name, mincus, maxcus, avgcookie) {  // constructor
     this.avgcookie = avgcookie;
     this.Chours = [];
     this.sumArr = 0;
-
-
 }
 
 
@@ -41,51 +38,46 @@ this.addElement();
 ////////////////// add element done 
 Store.prototype.addElement = function () {
 
-    var container = document.getElementById('container');
-    var unList2 = document.createElement('h2');
-    container.appendChild(unList2);
-    
+    var tableEl = document.getElementById('table');
+    var trEl = document.createElement('tr');
+    tableEl.appendChild(trEl);
+    var thEl = document.createElement('th');
+    trEl.appendChild(thEl);
+
     for (var u = 0; u < Store.length; u++) {
-        if (store[u] == this.name) {
-            unList2.textContent = `City${store[u]}`;
+            if (store[u] == this.name) {
+                thEl.textContent = `City${hours[u]}`;
+            }
         }
-    }
+
+
+
+    // var container = document.getElementById('container');
+    // var unList2 = document.createElement('h2');
+    // container.appendChild(unList2);
+    
+    // for (var u = 0; u < Store.length; u++) {
+    //     if (store[u] == this.name) {
+    //         unList2.textContent = `City${store[u]}`;
+    //     }
+    // }
   
 
-    var unList = document.createElement('ul');
-    container.appendChild(unList);
-    for (var numList = 0; numList < hours.length; numList++) {
-        var liEl = document.createElement('li');
-        unList.appendChild(liEl);
+    // var unList = document.createElement('ul');
+    // container.appendChild(unList);
+    // for (var numList = 0; numList < hours.length; numList++) {
+    //     var liEl = document.createElement('li');
+    //     unList.appendChild(liEl);
 
-        liEl.textContent = `${hours[numList]} : ${this.Chours[numList]} Cookies`;
-        if (store[numList] == this.name) {
-            liEl.textContent = `Total:lllllll${sumArr} cooooooooookies`;
+    //     liEl.textContent = `${hours[numList]} : ${this.Chours[numList]} Cookies`;
+    //     if (store[numList] == this.name) {
+    //         liEl.textContent = `Total:lllllll${sumArr} cooooooooookies`;
 
-        }
+    //     }
 
-    }
+    // }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
