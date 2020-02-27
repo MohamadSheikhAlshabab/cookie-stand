@@ -46,7 +46,7 @@ Store.prototype.addElement = function () {
     container.appendChild(unList2);
     
     for (var u = 0; u < Store.length; u++) {
-        if (Store[u] == this.name) {
+        if (store[u] == this.name) {
             unList2.textContent = `City${store[u]}`;
         }
     }
@@ -58,8 +58,8 @@ Store.prototype.addElement = function () {
         var liEl = document.createElement('li');
         unList.appendChild(liEl);
 
-        liEl.textContent = `${hours[numList]} : ${this.Chours[numList]} Co000000okies`;
-        if (Store[numList] == this.name) {
+        liEl.textContent = `${hours[numList]} : ${this.Chours[numList]} Cookies`;
+        if (store[numList] == this.name) {
             liEl.textContent = `Total:lllllll${sumArr} cooooooooookies`;
 
         }
