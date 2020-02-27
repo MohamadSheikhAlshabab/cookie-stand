@@ -44,10 +44,10 @@ Store.prototype.addElement = function () {
     var container = document.getElementById('container');
     var unList2 = document.createElement('h2');
     container.appendChild(unList2);
-    unList2.textContent = `City${store[u]}`;
     
     for (var u = 0; u < Store.length; u++) {
         if (Store[u] == this.name) {
+            unList2.textContent = `City${store[u]}`;
         }
     }
   
