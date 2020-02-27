@@ -1,8 +1,7 @@
 'use strict';
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-var Chours = [];
- var sumArr = 0;
-var store =[Seattle ,Tokoy ,Dubai , Paris ,Lima];
+// var sumArr = 0;
+var store = [Seattle, Tokoy, Dubai, Paris, Lima];
 
 
 function Store(name, mincus, maxcus, avgcookie) {  // constructor
@@ -10,31 +9,25 @@ function Store(name, mincus, maxcus, avgcookie) {  // constructor
     this.mincus = mincus;
     this.maxcus = maxcus;
     this.avgcookie = avgcookie;
-    this.shops = [];
+    this.Chours = [];
     this.sumArr = 0;
-    // this.multi = 0;
+
 
 }
 
 
-Store.prototype.randCustomer=function (mincus, maxcus) { // generate random number of customer
-    for (var r=0; r < hours.length; r++) {
-    var randNum = Math.floor(Math.random() * (this.maxcus - this.mincus) + this.mincus);
-    console.log(`randNum ${randNum}`);
-    var multi = 0;   
-    multi = Math.floor(randNum * this.avgcookie  );
-    console.log(`multi ${ r}   ${multi}`);
-    Chours.push(multi);
-    
-}
-    
-    for (var r=0; r < hours.length; r++) {
-        
-        sumArr += Chours[r];
-        Chours.push(`${sumArr} cookies`);
+Store.prototype.randCustomer = function () { // generate random number of customer and multiply random number by avgcookie 
+    // then sum all 14 values of array after multiply and give me sum of array
+    for (var r = 0; r < hours.length; r++) {
+        var randNum = Math.floor((Math.random() * (this.maxcus - this.mincus) + this.mincus) * this.avgcookie);
+        this.Chours.push(randNum);
+        console.log(this.Chours[r]);
     }
-    console.log(`${sumArr}`);
-    
+    for (var i = 0; i < hours.length; i++) {
+        this.sumArr += this.Chours[i];
+    }
+    console.log(` hello ${this.sumArr}`);
+this.addElement();
 }
 
 
@@ -48,60 +41,36 @@ Store.prototype.randCustomer=function (mincus, maxcus) { // generate random numb
 ////////////////// add element done 
 Store.prototype.addElement = function () {
 
-var link1 =document.createElement('a');
-container.appendChild(link1);
-link1.textContent='Index';
-link1.setAttribute('href', "index.html");
-
-var link2 =document.createElement('a');
-container.appendChild(link2);
-link2.textContent='Sales';
-link2.setAttribute('href', "sales.html");
-
- var table1 =document.getElementById('table');
-    var trEl = document.createElement('tr');
-    // table1.appendChild(trEl);
-
-    for (var u = 0; u !== shops.length; u++) {
-
-        if (shops[u] == this.name) {
-            // unList2.textContent = shops[u];
-
+    var container = document.getElementById('container');
+    var unList2 = document.createElement('h2');
+    container.appendChild(unList2);
+    unList2.textContent = `City${store[u]}`;
     
-
+    for (var u = 0; u < Store.length; u++) {
+        if (Store[u] == this.name) {
         }
     }
+  
 
-    // var unList = document.createElement('ul');
-    // container.appendChild(unList);
+    var unList = document.createElement('ul');
+    container.appendChild(unList);
     for (var numList = 0; numList < hours.length; numList++) {
+        var liEl = document.createElement('li');
+        unList.appendChild(liEl);
 
-    var thEl =document.createElement('th');
-            trEl.appendChild(thEl);
+        liEl.textContent = `${hours[numList]} : ${this.Chours[numList]} Co000000okies`;
+        if (Store[numList] == this.name) {
+            liEl.textContent = `Total:lllllll${sumArr} cooooooooookies`;
 
-
-/////////////////////////// this to add all li 
-        // var liEl = document.createElement('li');
-        // unList.appendChild(liEl);
-        // liEl.textContent = ` ${hours[numList]} : ${Chours[numList]} Cookies`;
-
-
-
-
-        Chours.push(multi);
-    }
-    if (Chours[numList] != numList) {
-
-        ///////////////////////// this to add new li to total
-        // var liEl = document.createElement('li');
-        // unList.appendChild(liEl);
-        // liEl.textContent = ` Total : ${sumArr} Cookies`;
+        }
 
     }
 
-
-   
 }
+
+
+
+
 
 
 
@@ -136,7 +105,5 @@ var Paris = new Store('Paris', 20, 38, 2.3);
 Paris.randCustomer();
 
 var Lima = new Store('Lima', 2, 16, 4.6);
-
-
-
 Lima.randCustomer();
+
