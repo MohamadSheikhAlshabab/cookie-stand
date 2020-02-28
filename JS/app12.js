@@ -34,22 +34,28 @@ this.addElement();
 
 
 
-
-////////////////// add element done 
-Store.prototype.addElement = function () {
-
+function tablle(){
     var tableEl = document.getElementById('table');
     var trEl = document.createElement('tr');
     tableEl.appendChild(trEl);
     var thEl = document.createElement('th');
     trEl.appendChild(thEl);
+    thEl.textContent = `City ${hours}`;
 
-    for (var u = 0; u < Store.length; u++) {
-            if (store[u] == this.name) {
-                thEl.textContent = `City${hours[u]}`;
-            }
-        }
+////////////////// add element done 
 
+var trEl1 = document.createElement('tr');
+tableEl.appendChild(trEl1);
+trEl1.appendChild(thEl1);
+var thEl1 = document.createElement('td');
+for (var u = 0; u < hours.length; u++) {
+    thEl1.textContent = `City ${this.Chours}`;
+    
+    // if (store[u] == this.name) {
+        // }
+    }
+}
+    Store.prototype.addElement = function () {
 
 
     // var container = document.getElementById('container');
@@ -78,6 +84,8 @@ Store.prototype.addElement = function () {
     // }
 
 }
+
+tablle();
 
 
 
