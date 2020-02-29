@@ -6,14 +6,23 @@ body{
      background-color: #faddd1;
 }
 table{
-        background-color: #f49cc8;
+
+        background-color: #f7007b;
+        
 }
 tr{
     background-color: #9cf4df;
 }
 nav{
-    
+    color: crimson;
 }
+td{
+    border-style: double;
+    font-family: 'Lato' ;
+    color: darkmagenta;
+    font-size: larger;
+}
+
 li strong{
     color: #53052c;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -22,8 +31,23 @@ main{
     margin-left: 200px;
     margin-right: 200px;
 }
-body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+ h2{font-family: "Karma", sans-serif;
+    color: coral;
+}
 
-p #call {
+
+#call{
+    font-family: 'PT Serif' ;
+    color: blue;
     text-align: center;
+}
+
+/* p #call {
+    text-align: center;
+} */
+fieldset{
+    font-family: 'Roboto Slab' ;
+    color: #ffcbcb;
+    background-color: #b2222294;
+    font-family: 'PT Serif' ;
 }
