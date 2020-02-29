@@ -6,16 +6,24 @@ var total = [];
 // var Chours = [];
 // var sumArr = 0;
 
+
+var form = document.getElementById("addCity");
+
+form.addEventListener('Submit', function (event) {
+    event.preventDefault();
+    console.log(event);
+})
+
 console.log(store);
-function Store(name, mincus, maxcus, avgcookie,hh) {  // constructor
+function Store(name, mincus, maxcus, avgcookie) {  // constructor
     this.name = name;
     this.mincus = mincus;
     this.maxcus = maxcus;
     this.avgcookie = avgcookie;
     this.Chours = [];
     this.sumArr = 0;
-   store.push(this);
-   
+    store.push(this);
+
 
 }
 
@@ -36,8 +44,8 @@ Store.prototype.randCustomer = function () { // generate random number of custom
     total = this.sumArr;
 
 
-    this.addElement();
- 
+    // this.addElement();
+
 }
 
 
@@ -90,6 +98,7 @@ tableheader();
 
 
 Store.prototype.addElement = function () {
+this.randCustomer();
 
     var tr2 = document.createElement('tr');
     table1.appendChild(tr2);
@@ -119,11 +128,42 @@ Store.prototype.addElement = function () {
     }
 
 
+
 }
 
 
 
+function add(){
 
+    var myForm = document.getElementById('addCity');
+    myForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+console.log('ddddd');
+        var name = event.target.name.value;
+        var mincus = event.target.mincus.value;
+        var maxcus = event.target.maxcus.value;
+        mincus = parseInt(mincus);
+        maxcus = parseInt(maxcus);
+        var avgcookie = event.target.avgcookie.value;
+        avgcookie = parseFloat(avgcookie);
+
+        if (maxcus > mincus) {
+            table1.removeChild(table1.lastChild);
+            var addedShop = new Store(name, mincus, maxcus, avgcookie);
+            addedShop.randomCusNum();
+            addedShop.render();
+            console.log(addedShop.cookiesPerHour);
+            console.log(addedShop.cusPerHour);
+            //submt=true;
+            // tablefooter();
+        }
+        else {
+            alert(" max/cust SHOULD BE GREATER THAN min/cust");
+        }
+
+    });
+}
+add();
 
 
 
@@ -161,19 +201,19 @@ Store.prototype.addElement = function () {
 
 
 var Seattle = new Store('Seattle', 23, 65, 6.3);
-Seattle.randCustomer();
+Seattle.addElement();
 
 var Tokoy = new Store('Tokoy', 3, 24, 1.2);
-Tokoy.randCustomer();
+Tokoy.addElement();
 
 var Dubai = new Store('Dubai', 11, 38, 3.7);
-Dubai.randCustomer();
+Dubai.addElement();
 
 var Paris = new Store('Paris', 20, 38, 2.3);
-Paris.randCustomer();
+Paris.addElement();
 
 var Lima = new Store('Lima', 2, 16, 4.6);
-Lima.randCustomer();
+Lima.addElement();
 
 
 
@@ -195,9 +235,9 @@ Lima.randCustomer();
 //             // totalcol=;
 
 //         totalshop = 'd';
-            
-            
-        
+
+
+
 //         // }
 
 //     }
@@ -208,43 +248,51 @@ Lima.randCustomer();
 
 // Store.prototype.hh = function () { 
 
-    function tablefooter() {
-        var tr3 = document.createElement('tfoot');
-        table1.appendChild(tr3);
-        var tdfooter = document.createElement('td');
-        tr3.appendChild(tdfooter);
-        tdfooter.textContent = "Totals";
-        var totalOftatals = 0;
-    
-    
-        for (var i = 0; i < hours.length; i++) {
-            
-            var colomSum = 0;
-            for (var j = 0; j < store1.length; j++) {
-                
-                colomSum += 5;
-                // console.log(this.Chours[j]);
-                // console.log(this.Chours[j][i]);
-    
-            }
-            totalOftatals = totalOftatals + colomSum;
-            var tdfoot = document.createElement('td');
-            tr3.appendChild(tdfoot);
-            tdfoot.textContent = colomSum;
+function tablefooter() {
+
+
+
+
+    var tr3 = document.createElement('tfoot');
+    table1.appendChild(tr3);
+    var tdfooter = document.createElement('td');
+    tr3.appendChild(tdfooter);
+    tdfooter.textContent = "Totals";
+    var totalOftatals = 0;
+
+
+    for (var i = 0; i < hours.length; i++) {
+
+        var colomSum = 0;
+        for (var j = 0; j < store1.length; j++) {
+
+            colomSum += 5;
+            // console.log(this.Chours[j]);
+            // console.log(this.Chours[j][i]);
+
         }
-    
-        var tdtotal = document.createElement('td');
-        tr3.appendChild(tdtotal);
-        tdtotal.textContent = totalOftatals;
-
-
-
-
-
-
- 
- 
-        
+        totalOftatals = totalOftatals + colomSum;
+        var tdfoot = document.createElement('td');
+        tr3.appendChild(tdfoot);
+        tdfoot.textContent = colomSum;
     }
-    tablefooter();
+
+    var tdtotal = document.createElement('td');
+    tr3.appendChild(tdtotal);
+    tdtotal.textContent = totalOftatals;
+
+
+
+
+
+
+
+
+
+}
+
+tablefooter();
+
+
+
 
