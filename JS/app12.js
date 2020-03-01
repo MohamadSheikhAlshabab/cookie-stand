@@ -98,7 +98,7 @@ tableheader();
 
 
 Store.prototype.addElement = function () {
-this.randCustomer();
+    this.randCustomer();
 
     var tr2 = document.createElement('tr');
     table1.appendChild(tr2);
@@ -133,12 +133,12 @@ this.randCustomer();
 
 
 
-function add(){
+function add() {
 
     var myForm = document.getElementById('addCity');
     myForm.addEventListener('submit', function (event) {
         event.preventDefault();
-console.log('ddddd');
+
         var name = event.target.name.value;
         var mincus = event.target.mincus.value;
         var maxcus = event.target.maxcus.value;
@@ -148,14 +148,17 @@ console.log('ddddd');
         avgcookie = parseFloat(avgcookie);
 
         if (maxcus > mincus) {
-            table1.removeChild(table1.lastChild);
+
             var addedShop = new Store(name, mincus, maxcus, avgcookie);
-            addedShop.randomCusNum();
-            addedShop.render();
-            console.log(addedShop.cookiesPerHour);
-            console.log(addedShop.cusPerHour);
-            //submt=true;
-            // tablefooter();
+            console.log(addedShop);
+            var tr15 = document.createElement('tr');
+            table1.appendChild(tr15);
+
+            for (var m = 0; m <=hours.length; m++) {
+                var td11 = document.createElement('td');
+                tr15.appendChild(td11);
+                td11.textContent = 'ffff';
+            }
         }
         else {
             alert(" max/cust SHOULD BE GREATER THAN min/cust");
@@ -249,8 +252,8 @@ Lima.addElement();
 // Store.prototype.hh = function () { 
 
 function tablefooter() {
-
-
+    // this.randCustomer();
+    // var h=this.Chours;
 
 
     var tr3 = document.createElement('tfoot');
@@ -267,7 +270,7 @@ function tablefooter() {
         for (var j = 0; j < store1.length; j++) {
 
             colomSum += 5;
-            // console.log(this.Chours[j]);
+            // console.log(h[j]);
             // console.log(this.Chours[j][i]);
 
         }
