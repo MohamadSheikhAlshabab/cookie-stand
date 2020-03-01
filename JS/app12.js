@@ -157,7 +157,8 @@ function add() {
             for (var m = 0; m <=hours.length; m++) {
                 var td11 = document.createElement('td');
                 tr15.appendChild(td11);
-                td11.textContent = 'ffff';
+                // td11.textContent = 'ffff';
+                td11.textContent=this.Chours;
             }
         }
         else {
